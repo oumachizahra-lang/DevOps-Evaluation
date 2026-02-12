@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Vérifier présence index.html
+      run: test -f index.html
+
+    - name: Vérifier contenu
+      run: grep "TP DevOps" index.html
